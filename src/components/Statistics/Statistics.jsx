@@ -1,10 +1,7 @@
-import { Component } from 'react';
 import { List, StatItem } from './Statistics.styled';
 import { Notification } from 'components/notification/Notification';
 
-export class Statistics extends Component {
-  render() {
-    const data = this.props.data;
+export const Statistics = ({data, percentage, total}) => {
     const isData = data.every((stats) => stats===0);
     return (
       <>
@@ -20,14 +17,13 @@ export class Statistics extends Component {
           <p>bad: {data[2]}</p>
         </StatItem>
         <StatItem>
-          <p>total: {this.props.total}</p>
+          <p>total: {total}</p>
         </StatItem>
-        <StatItem $percentage ={this.props.percentage}>
-          <p>positivePercentage: {this.props.percentage}%</p>
+        <StatItem $percentage ={percentage}>
+          <p>positivePercentage: {percentage}%</p>
         </StatItem>
       </List>
       )}
       </>
     );
-  }
 }
